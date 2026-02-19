@@ -34,6 +34,26 @@ jobs:
           echo "artifact=webHelp${INSTANCE_ID_UPPER}2-all.zip" >> "$GITHUB_OUTPUT"
           echo "algolia_artifact=algolia-indexes-${INSTANCE_ID_UPPER}.zip" >> "$GITHUB_OUTPUT"
 
+      - name: Inject Algolia frontend config
+        env:
+          ALGOLIA_APP_NAME: ${{ vars.ALGOLIA_APP_NAME }}
+          ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
+          ALGOLIA_SEARCH_ONLY_KEY_VAR: ${{ vars.ALGOLIA_SEARCH_ONLY_KEY }}
+          ALGOLIA_SEARCH_ONLY_KEY_SECRET: ${{ secrets.ALGOLIA_SEARCH_ONLY_KEY }}
+        run: |
+          ALGOLIA_SEARCH_ONLY_KEY="${ALGOLIA_SEARCH_ONLY_KEY_VAR}"
+          if [ -z "${ALGOLIA_SEARCH_ONLY_KEY}" ]; then
+            ALGOLIA_SEARCH_ONLY_KEY="${ALGOLIA_SEARCH_ONLY_KEY_SECRET}"
+          fi
+          if [ -n "${ALGOLIA_APP_NAME}" ] && [ -n "${ALGOLIA_INDEX_NAME}" ] && [ -n "${ALGOLIA_SEARCH_ONLY_KEY}" ]; then
+            sed -i "s|REPLACE_WITH_ALGOLIA_APP_ID|${ALGOLIA_APP_NAME}|g" Writerside/cfg/buildprofiles.xml
+            sed -i "s|REPLACE_WITH_ALGOLIA_INDEX|${ALGOLIA_INDEX_NAME}|g" Writerside/cfg/buildprofiles.xml
+            sed -i "s|REPLACE_WITH_ALGOLIA_SEARCH_ONLY_KEY|${ALGOLIA_SEARCH_ONLY_KEY}|g" Writerside/cfg/buildprofiles.xml
+            echo "Algolia frontend config injected into buildprofiles.xml"
+          else
+            echo "Algolia frontend config is incomplete. Keep placeholders; local search fallback will be used."
+          fi
+
       - name: Build documentation
         uses: JetBrains/writerside-github-action@v4
         with:

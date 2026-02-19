@@ -47,6 +47,7 @@ Set these in GitHub before enabling index publishing:
 
 - Repository variable: `ALGOLIA_APP_NAME`
 - Repository variable: `ALGOLIA_INDEX_NAME`
+- Repository variable: `ALGOLIA_SEARCH_ONLY_KEY`
 - Repository variable: `CONFIG_JSON_PRODUCT`
 - Repository variable: `CONFIG_JSON_VERSION`
 - Repository secret: `ALGOLIA_KEY`
