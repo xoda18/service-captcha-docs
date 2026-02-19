@@ -1,0 +1,15 @@
+{
+  "eventTime": "2026-02-19T10:31:06Z",
+  "requestId": "req_01JZY7F4JQ3Z1HJKQW9A",
+  "ip": "203.0.113.18",
+  "matchedRules": [
+    {
+      "id": "repeated_payload_30s",
+      "threshold": 5,
+      "observed": 7,
+      "windowSeconds": 30
+    }
+  ],
+  "decision": "CAPTCHA_REQUIRED",
+  "manualOverride": false
+}

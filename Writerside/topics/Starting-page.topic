@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="CAPTCHA Documentation Hub"
+       id="Starting-page">
+
+    <web-summary>Start here to understand CAPTCHA triggers, incident handling, and delivery setup.</web-summary>
+
+    <section-starting-page>
+        <title>Adaptive CAPTCHA for Service Protection</title>
+        <description>
+            This documentation is designed for non-developer tech specialists.
+            It explains when CAPTCHA is triggered, how to operate the control safely,
+            and how this documentation is published across platforms.
+        </description>
+
+        <spotlight>
+            <card href="CAPTCHA-Decisioning-Overview.md" summary="Understand the rule logic and decision flow."/>
+            <card href="CAPTCHA-Operations-Runbook.md" summary="Use this runbook during incidents and traffic anomalies."/>
+        </spotlight>
+
+        <primary>
+            <title>Core documentation</title>
+            <card href="CAPTCHA-Decisioning-Overview.md" summary="Rule triggers, thresholds, and decision flow."/>
+            <card href="CAPTCHA-Operations-Runbook.md" summary="Incident handling and response workflow."/>
+            <card href="CAPTCHA-Glossary.md" summary="Quick definitions for key terms."/>
+        </primary>
+
+        <secondary>
+            <title>Delivery and publishing</title>
+            <card href="Documentation-Delivery-Setup.md" summary="Docker, CI/CD, GitHub Pages, Algolia, and indexing settings."/>
+        </secondary>
+
+        <misc>
+            <links narrow="true">
+                <group>
+                    <title>External references</title>
+                    <a href="https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/">CAPTCHA challenge patterns (Cloudflare)</a>
+                    <a href="https://developers.google.com/recaptcha/">reCAPTCHA documentation</a>
+                </group>
+                <group>
+                    <title>Internal placeholders</title>
+                    <a href="%admin_panel_url%">Admin panel CAPTCHA settings (placeholder)</a>
+                    <a href="%public_doc_url%">Public docs URL (placeholder)</a>
+                </group>
+            </links>
+        </misc>
+    </section-starting-page>
+</topic>

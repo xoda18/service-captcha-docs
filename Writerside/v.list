@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
+<vars>
+    <var name="product" value="Adaptive CAPTCHA Gateway"/>
+    <var name="ip_request_limit" value="500"/>
+    <var name="ip_time_window_minutes" value="20"/>
+    <var name="payload_repeat_limit" value="5"/>
+    <var name="payload_time_window_seconds" value="30"/>
+    <var name="traffic_spike_multiplier" value="2"/>
+    <var name="traffic_baseline_period_days" value="14"/>
+    <var name="blacklist_source" value="Threat Intelligence Blacklist"/>
+    <var name="support_email" value="support@example.com"/>
+    <var name="security_email" value="security@example.com"/>
+    <var name="admin_panel_url" value="https://admin.example.com/security/captcha"/>
+    <var name="public_doc_url" value="https://docs.example.com/captcha"/>
+</vars>

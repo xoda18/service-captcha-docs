@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="hi"
+                  name="Help Instance"
+                  start-page="Starting-page.topic">
+
+    <toc-element topic="Starting-page.topic" toc-title="Start Here" accepts-web-file-names="index.html,home.html"/>
+    <toc-element topic="CAPTCHA-Decisioning-Overview.md" accepts-web-file-names-ref="captcha-overview-legacy">
+        <toc-element topic="CAPTCHA-Operations-Runbook.md"/>
+        <toc-element topic="CAPTCHA-Glossary.md"/>
+        <toc-element topic="Documentation-Delivery-Setup.md"/>
+    </toc-element>
+</instance-profile>

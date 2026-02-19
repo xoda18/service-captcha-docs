@@ -1,0 +1,9 @@
+{
+  "captchaRequired": true,
+  "challengeType": "checkbox",
+  "reasonCodes": [
+    "REPEATED_PAYLOAD"
+  ],
+  "expiresAt": "2026-02-19T10:33:05Z",
+  "requestId": "req_01JZY7F4JQ3Z1HJKQW9A"
+}

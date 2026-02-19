@@ -1,0 +1,5 @@
+ALGOLIA_APP_NAME=<your-app-name>
+ALGOLIA_INDEX_NAME=<your-index-name>
+CONFIG_JSON_PRODUCT=<product-id>
+CONFIG_JSON_VERSION=<version-id>
+ALGOLIA_KEY=<admin-api-key>

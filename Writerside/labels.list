@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
+
+<labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
+    <primary-label id="audience-nondev" short-name="NONDEV" name="Non-Developer" color="blue">
+        Content for tech specialists and support teams with no coding responsibilities.
+    </primary-label>
+    <primary-label id="audience-ops" short-name="OPS" name="Operations" color="purple">
+        Operational guidance for day-to-day incident handling.
+    </primary-label>
+
+    <secondary-label id="security" name="Security" color="red">
+        Security-focused explanations, controls, or escalation criteria.
+    </secondary-label>
+    <secondary-label id="stable" name="Stable" color="green">
+        Documented behavior currently active in production.
+    </secondary-label>
+    <secondary-label id="internal" name="Internal" color="blue">
+        Internal setup and delivery notes for the documentation team.
+    </secondary-label>
+    <secondary-label id="impact" name="Customer Impact" color="tangerine">
+        Areas that directly affect user experience and retention.
+    </secondary-label>
+</labels>

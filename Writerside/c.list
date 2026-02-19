@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE categories
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/categories.dtd">
+<categories>
+    <category id="security" name="Security" order="1"/>
+    <category id="operations" name="Operations" order="2"/>
+    <category id="delivery" name="Delivery" order="3"/>
+    <category id="references" name="References" order="4"/>
+</categories>

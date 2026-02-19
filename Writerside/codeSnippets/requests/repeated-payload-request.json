@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-02-19T10:31:05Z",
+  "ip": "203.0.113.18",
+  "endpoint": "/api/v1/signup",
+  "payload": {
+    "email": "same-user@example.com",
+    "deviceFingerprint": "dvc-3fc201d",
+    "campaign": "winter_offer"
+  }
+}

@@ -1,0 +1,17 @@
+name: Docs CI/CD
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: Writerside/hi
+      - uses: JetBrains/writerside-checker-action@v1
+      - uses: actions/deploy-pages@v4

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE buildprofiles SYSTEM "https://resources.jetbrains.com/writerside/1.0/build-profiles.dtd">
+<buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <variables>
+        <web-root>https://xoda.github.io/Writerside_Codex2</web-root>
+        <product-web-url>https://xoda.github.io/Writerside_Codex2</product-web-url>
+        <generate-canonicals>true</generate-canonicals>
+        <external-links-in-new-tab>true</external-links-in-new-tab>
+        <code-soft-wrap>true</code-soft-wrap>
+    </variables>
+
+    <shortcuts>
+        <src>keymap.xml</src>
+        <layout name="Windows" display-name="Windows"/>
+        <layout name="macOS" display-name="macOS"/>
+        <layout name="Linux" display-name="Linux"/>
+    </shortcuts>
+
+    <footer>
+        <p>Documentation for %product%. For support, contact <a href="mailto:%support_email%">%support_email%</a>.</p>
+    </footer>
+
+    <build-profile instance="hi">
+        <sitemap priority="0.8" change-frequency="weekly"/>
+        <llms-txt/>
+        <variables>
+            <noindex-content>false</noindex-content>
+            <algolia-id>REPLACE_WITH_ALGOLIA_APP_ID</algolia-id>
+            <algolia-index>REPLACE_WITH_ALGOLIA_INDEX</algolia-index>
+            <algolia-api-key>REPLACE_WITH_ALGOLIA_SEARCH_ONLY_KEY</algolia-api-key>
+            <algolia-show-logo>true</algolia-show-logo>
+        </variables>
+    </build-profile>
+
+</buildprofiles>

@@ -1,0 +1,8 @@
+services:
+  docs-preview:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: captcha-docs-preview:latest
+    ports:
+      - "8080:80"
