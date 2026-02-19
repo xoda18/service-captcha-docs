@@ -27,10 +27,6 @@
         <llms-txt/>
         <variables>
             <noindex-content>false</noindex-content>
-            <algolia-id>REPLACE_WITH_ALGOLIA_APP_ID</algolia-id>
-            <algolia-index>REPLACE_WITH_ALGOLIA_INDEX</algolia-index>
-            <algolia-api-key>REPLACE_WITH_ALGOLIA_SEARCH_ONLY_KEY</algolia-api-key>
-            <algolia-show-logo>true</algolia-show-logo>
         </variables>
     </build-profile>
 

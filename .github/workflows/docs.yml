@@ -45,13 +45,21 @@ jobs:
           if [ -z "${ALGOLIA_SEARCH_ONLY_KEY}" ]; then
             ALGOLIA_SEARCH_ONLY_KEY="${ALGOLIA_SEARCH_ONLY_KEY_SECRET}"
           fi
+
+          sed -i '/<algolia-id>.*<\/algolia-id>/d' Writerside/cfg/buildprofiles.xml
+          sed -i '/<algolia-index>.*<\/algolia-index>/d' Writerside/cfg/buildprofiles.xml
+          sed -i '/<algolia-api-key>.*<\/algolia-api-key>/d' Writerside/cfg/buildprofiles.xml
+          sed -i '/<algolia-show-logo>.*<\/algolia-show-logo>/d' Writerside/cfg/buildprofiles.xml
+
           if [ -n "${ALGOLIA_APP_NAME}" ] && [ -n "${ALGOLIA_INDEX_NAME}" ] && [ -n "${ALGOLIA_SEARCH_ONLY_KEY}" ]; then
-            sed -i "s|REPLACE_WITH_ALGOLIA_APP_ID|${ALGOLIA_APP_NAME}|g" Writerside/cfg/buildprofiles.xml
-            sed -i "s|REPLACE_WITH_ALGOLIA_INDEX|${ALGOLIA_INDEX_NAME}|g" Writerside/cfg/buildprofiles.xml
-            sed -i "s|REPLACE_WITH_ALGOLIA_SEARCH_ONLY_KEY|${ALGOLIA_SEARCH_ONLY_KEY}|g" Writerside/cfg/buildprofiles.xml
+            sed -i "/<noindex-content>false<\\/noindex-content>/a\\
+            <algolia-id>${ALGOLIA_APP_NAME}</algolia-id>\\
+            <algolia-index>${ALGOLIA_INDEX_NAME}</algolia-index>\\
+            <algolia-api-key>${ALGOLIA_SEARCH_ONLY_KEY}</algolia-api-key>\\
+            <algolia-show-logo>true</algolia-show-logo>" Writerside/cfg/buildprofiles.xml
             echo "Algolia frontend config injected into buildprofiles.xml"
           else
-            echo "Algolia frontend config is incomplete. Keep placeholders; local search fallback will be used."
+            echo "Algolia frontend config is incomplete. Built-in search will be used."
           fi
 
       - name: Build documentation
