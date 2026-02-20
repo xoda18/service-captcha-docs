@@ -4,8 +4,8 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <variables>
-        <web-root>https://xoda.github.io/Writerside_Codex2</web-root>
-        <product-web-url>https://xoda.github.io/Writerside_Codex2</product-web-url>
+        <web-root>https://xoda18.github.io</web-root>
+        <product-web-url>https://xoda18.github.io</product-web-url>
         <generate-canonicals>true</generate-canonicals>
         <external-links-in-new-tab>true</external-links-in-new-tab>
         <code-soft-wrap>true</code-soft-wrap>
@@ -19,7 +19,8 @@
     </shortcuts>
 
     <footer>
-        <p>Documentation for %product%. For support, contact <a href="mailto:%support_email%">%support_email%</a>.</p>
+        <notice>Documentation for %product%</notice>
+        <link href="mailto:%support_email%">Contact support (%support_email%)</link>
     </footer>
 
     <build-profile instance="hi">
