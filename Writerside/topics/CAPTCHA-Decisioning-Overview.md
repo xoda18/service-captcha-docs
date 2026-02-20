@@ -54,10 +54,10 @@ flowchart TD
     F -- No --> G[Allow request without CAPTCHA]
 ```
 
-## Example request and challenge response
+## Request and challenge response
 <secondary-label ref="impact"/>
 
-Repeated payload example:
+Repeated payload request:
 
 <code-block lang="json" src="../codeSnippets/requests/repeated-payload-request.json"/>
 
