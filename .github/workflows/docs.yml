@@ -33,30 +33,54 @@ jobs:
           INSTANCE_ID_UPPER=$(echo "$INSTANCE" | tr '[:lower:]' '[:upper:]')
           echo "artifact=webHelp${INSTANCE_ID_UPPER}2-all.zip" >> "$GITHUB_OUTPUT"
 
-      - name: Inject Algolia frontend config
+      - name: Inject Pages and Algolia frontend config
         env:
           ALGOLIA_APP_NAME: ${{ vars.ALGOLIA_APP_NAME }}
           ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
           ALGOLIA_SEARCH_ONLY_KEY_VAR: ${{ vars.ALGOLIA_SEARCH_ONLY_KEY }}
           ALGOLIA_SEARCH_ONLY_KEY_SECRET: ${{ secrets.ALGOLIA_SEARCH_ONLY_KEY }}
         run: |
+          FILE="Writerside/cfg/buildprofiles.xml"
+
+          OWNER="${GITHUB_REPOSITORY_OWNER}"
+          REPO="${GITHUB_REPOSITORY#*/}"
+          if [ "${REPO}" = "${OWNER}.github.io" ]; then
+            PAGES_URL="https://${OWNER}.github.io"
+          else
+            PAGES_URL="https://${OWNER}.github.io/${REPO}"
+          fi
+
+          sed -i "s#<web-root>.*</web-root>#<web-root>${PAGES_URL}</web-root>#" "$FILE"
+          sed -i "s#<product-web-url>.*</product-web-url>#<product-web-url>${PAGES_URL}</product-web-url>#" "$FILE"
+
           ALGOLIA_SEARCH_ONLY_KEY="${ALGOLIA_SEARCH_ONLY_KEY_VAR}"
           if [ -z "${ALGOLIA_SEARCH_ONLY_KEY}" ]; then
             ALGOLIA_SEARCH_ONLY_KEY="${ALGOLIA_SEARCH_ONLY_KEY_SECRET}"
           fi
 
-          sed -i '/<algolia-id>.*<\/algolia-id>/d' Writerside/cfg/buildprofiles.xml
-          sed -i '/<algolia-index>.*<\/algolia-index>/d' Writerside/cfg/buildprofiles.xml
-          sed -i '/<algolia-api-key>.*<\/algolia-api-key>/d' Writerside/cfg/buildprofiles.xml
-          sed -i '/<algolia-show-logo>.*<\/algolia-show-logo>/d' Writerside/cfg/buildprofiles.xml
+          sed -i '/<algolia-id>.*<\/algolia-id>/d' "$FILE"
+          sed -i '/<algolia-index>.*<\/algolia-index>/d' "$FILE"
+          sed -i '/<algolia-api-key>.*<\/algolia-api-key>/d' "$FILE"
+          sed -i '/<algolia-show-logo>.*<\/algolia-show-logo>/d' "$FILE"
 
           if [ -n "${ALGOLIA_APP_NAME}" ] && [ -n "${ALGOLIA_INDEX_NAME}" ] && [ -n "${ALGOLIA_SEARCH_ONLY_KEY}" ]; then
+            if ! grep -q '<noindex-content>false</noindex-content>' "$FILE"; then
+              sed -i '/<build-profile instance="hi">/a\
+                <noindex-content>false</noindex-content>' "$FILE"
+            fi
+
             sed -i "/<noindex-content>false<\\/noindex-content>/a\\
-            <algolia-id>${ALGOLIA_APP_NAME}</algolia-id>\\
-            <algolia-index>${ALGOLIA_INDEX_NAME}</algolia-index>\\
-            <algolia-api-key>${ALGOLIA_SEARCH_ONLY_KEY}</algolia-api-key>\\
-            <algolia-show-logo>true</algolia-show-logo>" Writerside/cfg/buildprofiles.xml
-            echo "Algolia frontend config injected into buildprofiles.xml"
+                <algolia-id>${ALGOLIA_APP_NAME}</algolia-id>\\
+                <algolia-index>${ALGOLIA_INDEX_NAME}</algolia-index>\\
+                <algolia-api-key>${ALGOLIA_SEARCH_ONLY_KEY}</algolia-api-key>\\
+                <algolia-show-logo>true</algolia-show-logo>" "$FILE"
+
+            if grep -q '<algolia-id>' "$FILE"; then
+              echo "Algolia frontend config injected into buildprofiles.xml"
+            else
+              echo "Failed to inject Algolia frontend config" >&2
+              exit 1
+            fi
           else
             echo "Algolia frontend config is incomplete. Built-in search will be used."
           fi

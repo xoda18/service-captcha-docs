@@ -4,11 +4,12 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <variables>
-        <web-root>https://xoda18.github.io</web-root>
-        <product-web-url>https://xoda18.github.io</product-web-url>
+        <web-root>https://xoda18.github.io/captcha</web-root>
+        <product-web-url>https://xoda18.github.io/captcha</product-web-url>
         <generate-canonicals>true</generate-canonicals>
         <external-links-in-new-tab>true</external-links-in-new-tab>
         <code-soft-wrap>true</code-soft-wrap>
+        <primary-color>frozen</primary-color>
     </variables>
 
     <shortcuts>
@@ -24,6 +25,7 @@
     </footer>
 
     <build-profile instance="hi">
+        <noindex-content>false</noindex-content>
         <sitemap priority="0.8" change-frequency="weekly"/>
     </build-profile>
 
