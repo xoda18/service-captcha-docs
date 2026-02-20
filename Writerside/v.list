@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="product" value="Adaptive CAPTCHA Gateway"/>
+    <var name="product" value="Adaptive CAPTCHA"/>
     <var name="ip_request_limit" value="500"/>
     <var name="ip_time_window_minutes" value="20"/>
     <var name="payload_repeat_limit" value="5"/>

@@ -3,8 +3,6 @@
 <rules>
     <rule id="captcha-overview-legacy">
         <description>Legacy URLs that should redirect to the CAPTCHA decisioning overview.</description>
-        <accepts>default-topic.html</accepts>
         <accepts>captcha.html</accepts>
-        <accepts>anti-bot-overview.html</accepts>
     </rule>
 </rules>

@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="hi"
-                  name="Help Instance"
+                  name="CAPTCHA Documentation"
                   start-page="Starting-page.topic">
 
     <toc-element topic="Starting-page.topic" toc-title="Start Here" accepts-web-file-names="index.html,home.html"/>
