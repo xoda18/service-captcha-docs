@@ -30,11 +30,6 @@
 | `%payload_repeat_limit%` | Maximum same-payload repeats in `%payload_time_window_seconds%` seconds before rule triggers |
 | `%traffic_spike_multiplier%` | Multiplier over historical baseline that triggers hourly spike protection |
 
-## Contacts
-
-- Support: [%support_email%](mailto:%support_email%)
-- Security: [%security_email%](mailto:%security_email%)
-
 <seealso>
     <category ref="operations">
         <a href="CAPTCHA-Operations-Runbook.md" summary="Operational workflows that use these terms."/>
